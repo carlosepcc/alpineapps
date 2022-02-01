@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset=utf-8><title>Alpine App</title>
+ 	<meta name=viewport content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<!--getbootstrap.com-->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+	<!-- alpinejs.dev -->
+	<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<style>
+	*{box-sizing: border-box;}
+	hr,h1,footer{scroll-snap-align: start;}
+	
+textarea.code{
+	overflow-x:scroll;
+	white-space:nowrap;
+	color:#fffb;
+	resize:vertical;
+	font:600 6pt monospace;
+	width: 100%;
+	height: 40vh;
+	scroll-snap-align: start;
+}
+.output{
+	width: 100%;
+	height: 100vh;
+	resize: both;
+	overflow: auto;
+	scroll-snap-align: start;
+}
+html{
+	scroll-snap-type:y mandatory;
+}
+</style>
+<script>
+
+</script>
+</head>
+<body class="m-2">
+<header>
+	<h1 id=title>Alpine App</h1>
+	<p>Prototype fast</p>
+</header>
+<hr />
+<main>
+	<section>
+	<article>
+	<p>This is an alpine app for practicing HTML, CSS and JS code.</p>
+	</article>
+		
+	</section>
+	<div x-data="{
+		h:'<p>Hello World</p>'}">
+
+			<textarea id="codeinput" class="bg-dark code rounded p-2" x-model=h></textarea>
+
+<div>
+			<a href="#simpleoutput"><small class="text-muted">simple output</small></a>
+			<div id="simpleoutput" class="output shadow-sm border" x-html=h style="height: 100vh;">Output</div>
+			<br/>
+			<a href="#iframeoutput"><small class="text-muted">iframe output</small></a>
+			<iframe
+			id="iframeoutput"
+			class="output shadow border rounded-1"
+			title="Inline Frame Example"
+			:srcdoc="h"
+			frameborder="0">
+			</iframe>
+</div>
+			
+		</div>
+	
+<main>
+<aside>
+</aside>
+<footer class="mt-5">
+	<div style="position:fixed;bottom:4px;right:8px;inset-block-end:4px;inset-inline-end:8px;">
+	
+	<a href=#iframeoutput
+	>iframe</a>
+	<a href=#simpleoutput 
+	>simple</a>
+	<a href=#codeinput 
+	><code>code</code></a>
+	</div>
+</footer>
+
+</body>
+</html>
